@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Aryan Mishra</title>
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing Script">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta Stencil">
+</head>
+<style>
+     html{
+          scroll-behavior: smooth;
+     }
+     body{
+          /* height: 3000px; */ height: 2000px;
+          
+          background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAHwAugMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAAAQIH/8QAHRABAQEAAgIDAAAAAAAAAAAAAAERIZGBoTFRYf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDjAACoAoigEAFi79ppaC6rGtaBpT9TQUtTT5BdEAaRNNBVtSJsBKvJwd9AyIAogCqgCiKAqAAALqAAULQIEABAGipKUCLtQBkEoKIoKIAqsqCiAAAKIAogBEoAAAKgCiAIAAACiAKACiAKIAuiAKIAAgKIoCKgCocgBUBRFAAAABUAFQAUAACggACoAAAAeQEAAABUAUQBRAFEAaEAAAEABUAUAA8+hABAFAABAURQAAFEBQQFEAAARUAUABAAABQKCAAoAAAAAAAAAAAIKgAAAAP/2Q==');
+     }
+     /* *{
+          box-sizing: border-box;
+     } */
+     .nav{
+          /* border: solid red; */
+          /* position: sticky; */
+          top: 1px;
+          background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAHgAoAMBIgACEQEDEQH/xAAbAAADAQEBAQEAAAAAAAAAAAABAgMABAUGB//EACwQAAICAQMDAwQBBQEAAAAAAAABAhEDEiExBEFREyKBFDJhkXEjUlOhsRX/xAAXAQEBAQEAAAAAAAAAAAAAAAAAAQID/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEB/9oADAMBAAIRAxEAPwD8aaBQ7QtbgBoFDNAKMNQAlwahooUeJUUiiyojEomVjcUjSL45LwjmTsopUis67YTS7IqpR8I89ZaD61lZd/qRXZDPKtPCPP8AU/IXl2KkUzTT7I48ktx5TsjIzut5hZSsk2gyZNsjpmDVjONICdGnJswpKsAQUFZBMhqKjJDLYaON80LJpbFSmTDqI6w2CLKVB1tkExkypFdQymSSbQLoJFtbM5kdQNQpFXL8iuRJyM2FjSYlhYrI0qt2PKOwqHhu6ZBF7MBWcKJOSQDUW6aMZ5VGT2ObUaMmna5GG4+slh6LB0d3HVR8x1Li8snHgWWacl7pN/JNuy1MwUN2EGfBFANimKKxyUhXKxDAPZgIwBYDM3YAMULFIOv05RjbWxByaezOifUasemjke5NMNrYnO5ho8EUoWZgZRjBNQGQz4AjPgoBjR3kr4OnLCHpquQOawitUFBBsNgMAdQU13EBYU0hTJmIi7ROSOpwVIk47iFQoKKSiLpYUrAFpoIASBIdJAkAthQrHirINEfUDTpNp7lE5bmRVQXcDjQCpWHSBXY+5UTaBRRJPk1b0IEUQyjRb09rJ5GIPRUYuNE8mNLihfcDTKXBWU6WqgSpbFPQyWZdLkYVzS3NGNnZ9DN+P2ikOha5aBXLGEe4s8cWd/0sVyzLo4vu/wBiJXmemVxwUXuelDoMflsp/wCfHtG/kQrzJRi0Joj3Z6sugh/bXyTl0WPsnsCvOlGIjj+T0X0mO9zPooeaEK85Kh40ztfQX9rv5JPopx4/6CoaVq2KwxJ7sWWGaZoqaKmraY0QyYkxm5X4NHfbuDHRLTez/kpjpPhHCpyiw+tLyRY9O34QVkp1Ua8nl/UyWzdorDqIgj0FJfhoyyW6VI4vqYvhnTilj2kpW/BUdMccuexfFgjLmkPiywlFJ8lMcYydptLyiAQ6Zv7EmOul6j/Ft/o7caSi3KVL+Toxwjki1Bzl8qiLHkT6bKq9kUq3aRLJh08V+j2cuFKPvzNqrpnFlhByTcrS8Nso8qcWnulRNU3wn/B6eaGNReqa/N7HDlhi1e2VrzYQqir4pgnDbavgGRpR2zKq4Of19L+4qKPFKvsTJvE1zGjPqXv7ibz293sAs8VvwTcNDtFJdQn5JuabCobsWS5CYjRNDfYMVsEwhuilXJbDLfYJisuuMpJJvj8hjmkpbW9+DGCKS6rLJ+6NLtLvRfH1Wfdwckq/ZjBR6nL1sXBTmmmk6VcGlkcIf05tb2zGBrhzZZuUvUlqvgg8r32AYqJym2rsjKbCYi4CbY6VmMF1hWzGBj//2Q==');
+     }
+     .nav ul{
+          float: right;
+          /* background-color: blue; */
+          display: flex;
+     }
+     .nav li{
+          /* background-color: brown; */
+          font-size: 20px;
+          list-style: none;
+          padding: 16px 69px;
+          padding-top: 2px;
+          display: flex;
+          
+     }
+     .ima{
+          border-radius: 65px;
+          height: 54px;
+
+     }
+     .first{
+          height: 523px;
+          /* background-color: green; */
+          text-align: center;
+          color: beige;
+          background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGgi4d-ki5iMB2c9PI-BIjZ3MozVfLRWeYNg&usqp=CAU');
+          background-repeat: no-repeat;
+          background-size: cover;
+          /* background-image: url('https://lh3.googleusercontent.com/YiHxHCxngm1kn_yoHW45Utlrgy86ijRJDdnKS2zRgURzi-YgVKOEtNf6AHMNnFGYrmxrmLVxIwdR-gkU4euzV7B3h4vL6V3rLR6e0Fj8uND_MLJes6oT-EzuG5qyVD855qELsnPdJ2Iq0SbA6A'); */
+          /* background-image: url('https://lh3.googleusercontent.com/YiHxHCxngm1kn_yoHW45Utlrgy86ijRJDdnKS2zRgURzi-YgVKOEtNf6AHMNnFGYrmxrmLVxIwdR-gkU4euzV7B3h4vL6V3rLR6e0Fj8uND_MLJes6oT-EzuG5qyVD855qELsnPdJ2Iq0SbA6A'); */
+     }
+     .name{
+          /* border: solid rosybrown; */
+          /* border: solid rosybrown; */
+              /* border: solid rosybrown; */
+              /* border: solid rosybrown; */
+              font-size: 88px;
+              float: left;
+              font-family: fantasy;
+              color: rgb(9, 214, 228);
+              width: 787px;
+              margin-left: 235px;
+     }
+     .name:hover{
+          color: rgb(9, 2, 105);
+     }
+     .intro{
+          /* border: solid blueviolet; */
+
+          margin-top: 143px;
+          width: 1252px;
+          float: right;
+          height: 330px;
+          font-size: 35px;
+          
+          
+          /* animation-name: tecv;
+          animation-iteration-count: infinite;
+          animation-duration: 2s; */
+     }
+     /* .bg{
+          border: solid 5px red;
+          background-image: url('https://lh3.googleusercontent.com/YiHxHCxngm1kn_yoHW45Utlrgy86ijRJDdnKS2zRgURzi-YgVKOEtNf6AHMNnFGYrmxrmLVxIwdR-gkU4euzV7B3h4vL6V3rLR6e0Fj8uND_MLJes6oT-EzuG5qyVD855qELsnPdJ2Iq0SbA6A');
+          height: 100%;
+          opacity: 20%;
+     }   */
+     .ima1{
+          margin-top: 61px;
+          height: 335px;
+          opacity: 40%;
+     }
+     .ima1:hover{
+          opacity: 100%;
+     }
+     .spn{
+          color: yellow;
+          font-size: 100px;
+          /* margin-right: 500px; */
+          text-align: center;
+     }
+     .spn::after{
+          content: "";
+          animation-name: tecv;
+          animation-duration: 6s;
+          animation-iteration-count: infinite;
+     }
+     @keyframes tecv {
+          0%{
+               content: "Developer";
+          }
+          20%{
+               content: "Developer";
+          }
+          25%{
+               content: "Competitive Programmer";
+          }
+          45%{
+               content: "Competitive Programmer";
+          }
+          50%{
+               content: "Content Writer";
+          }
+          70%{
+               content: "Content Writer";
+          }
+          75%{
+               content: "Learner";
+          }
+          100%{
+               content: "Learner";
+          }
+     }
+     .second{
+          /* border: solid red;
+          color: aliceblue;
+          position: sticky;
+          /* top: 500px;                 Go to Top */
+          /* border: solid blue; */
+          color:gold;
+          background-image: url('https://media.istockphoto.com/photos/golden-particles-in-the-rays-of-light-on-a-black-background-for-use-picture-id1336137419?b=1&k=20&m=1336137419&s=170667a&w=0&h=NmWvnP-uGjydnVLzp-VhwgrJVOjvD8wEb9K1RDgHCFc=');
+          margin-top: 12px;   
+          height: 595px;
+          background-size: 900px;
+          /* margin-top: 88px; */
+     }
+     
+     .myself{
+          
+          width: 821px;
+          height: 396px;
+          float: right;
+          margin-top: 109px;
+          margin-right: 0px;
+          font-size: 44px;
+     }
+     .ima2{
+          height: 275px;
+          width: 286px;
+          
+          margin-left: 67px;
+          border-radius: 119px;
+          border: solid;
+          margin-top: 167px;
+
+     }
+     .qwq{
+          /* border: solid 2px red; */
+          margin-top: 0px;
+          margin-bottom: 0px;
+          margin-left: 204px;
+          font-size: 67px;
+     }
+     .third{
+          /* border: solid red; */
+          color: white;
+          /* background-color: aqua; */
+          /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr9A8pEW4xgsNT2YbtzGtHd1pM2D43HADpTQ&usqp=CAU'); */
+          background-color: black;
+          background-repeat: no-repeat;
+          background-size:cover;
+          height: 592px;
+          margin-top: 88px;
+     }
+     .thd-hd{
+          font-size: 111px;
+          margin-left: 490px;
+          margin-bottom: 0px;
+          margin-top: 0px;
+          height: 0px;
+          width: 0px;
+          color: #fff;
+          animation: glow 1s ease-in-out infinite alternate;
+     }
+     @-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+    
+     .cpp{
+          /* border: 2px solid rebeccapurple; */
+          margin-top: 185px;
+          margin-left: 116px;
+          width: 144px;
+          height: 144px;
+          transition: width 2s,height 2s, transform 2s;
+     }
+     .cpp:hover{
+          /* width: 144px;
+          height: 144px; */
+          transform: rotate(360deg);
+     }
+     .c{
+          /* border: solid 2px red; */
+          margin-left: 136px;
+          width: 132px;
+          height: 144px;
+          transition: width 2s,height 2s, transform 2s;
+     }
+     .c:hover{
+          /* width: 132px;
+          height: 144px; */
+          transform: rotate(360deg);
+     }
+     .java{
+          /* border: solid 2px red; */
+          height: 154px;
+          margin-left: 179px;
+          width: 93.292;
+          transition: width 2s,height 2s, transform 2s;
+     }
+     .java:hover{
+          /* width: 93.292px;
+          height: 154px; */
+          transform: rotate(360deg);
+     }
+     .hht{
+          /* border: solid 2px red; */
+          height: 226px;
+          width: 232px;
+          margin-left: 64px;
+          margin-top: 17px;
+          transition: width 2s,height 2s, transform 2s;
+     }
+     .hht:hover{
+          /* width: 232px;
+          height: 226px; */
+          transform: rotate(360deg);
+     }
+     .css{
+          /* border: solid 2px red; */
+          height: 237px;
+          margin-left: 239px;
+          width: 225px;
+          transition: width 2s,height 2s, transform 2s;
+     }
+     .css:hover{
+          /* width: 175px;
+          height: 273px; */
+          transform: rotate(360deg);
+     }
+     .js{
+          /* border: solid 2px red; */
+          height: 154px;
+          width: 180.927;
+          margin-left: 167px;
+          transition: width 2s,height 2s, transform 2s;
+     }
+     .js:hover{
+          /* width: 136.292px;
+          height: 154px; */
+          transform: rotate(360deg);
+     }
+     .cmm{
+          /* border: solid 2px red; */
+          width: 314px;
+          margin-left: 164px;
+          height: 216px;
+          transition: width 2s,height 2s, transform 2s;
+     }
+     .cmm:hover{
+          /* width: 314px;
+          height: 216px; */
+          transform: rotate(360deg);
+     }
+     
+.html{
+     width: 20px;
+    margin-left: 800px;
+    float: right;
+    position: absolute;
+}
+.cfv{
+     /* background-color: #fff; */
+     background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAn0tZUHDlOPrcJxHHrWYq8O9yQBo-ZPNmDg&usqp=CAU');
+     background-repeat: no-repeat;
+     /* background-color: #fff; */
+     background-size:cover;
+     height: 1000px;
+     margin-top: 129px;
+     font-family:anton;
+}
+.HD{
+     font-size: 83px;
+     color: red;
+     text-align: center;
+}
+.allabt{
+     /* background-color: wheat; */
+     height: 895px;
+     font-family: Allerta Stencil;
+     font-size: 50px;
+     text-align: center;
+     color: rgb(233, 6, 86);
+     /* font-weight: 100; */
+}
+.contact{
+     background-color: rgba(165, 10, 10, 0.95);
+    /* margin-top: 20px; */
+    height: 193px;
+    color: white;
+    margin-top: 33px;
+}
+.cnt{
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     font-size: 44px;
+     /* margin-left: 480px; */
+     text-align: center;
+}
+.fb{
+     /* border: solid 2b px red; */
+     margin-left: 144px;
+     /* margin-left: 3%;
+     margin-right: 3%; */
+     height: 72px;
+     width: 72px;
+     transition: ease-in-out 2s
+}
+/* .fb:hover{
+     height: 90px;
+     width: 90px;
+} */
+.insta{
+     /* margin-left: 362px;
+     /* margin-left: 3%;
+     margin-right: 3%; */
+    /*width: 72px;
+    height: 72px; */
+    margin-left: 244px;
+    width: 72px;
+    height: 72px;
+}
+.ld{
+     width: 72px;
+    height: 72px;
+    margin-left: 263px;
+    /* margin-left: 3%;
+    margin-right: 3%; */
+}
+.githb{
+     width: 76px;
+    margin-left: 247px;
+}
+/* .pic{
+     float: right;
+     border-right-width: 0px;
+     width: 200px;
+     height: 200px;
+     margin-right: 219px;
+    margin-top: 113px;
+    transition: width 2s,height 2s, transform 2s;
+}
+.pic:hover{
+     width: 200px;
+     height: 200px;
+     transform: rotate(360deg);
+} */
+</style>
+<body>
+     <div class="nav">
+          <nav>
+               <img class="ima" src="https://userpic.codeforces.org/2371637/title/f932d9f6a47de3d0.jpg" alt="">
+               <ul>
+                    <li>
+                         <a href="#">Home</a>
+                    </li>
+                    <li>
+                         <a href="#sec">About Me</a>
+                    </li>
+                    <li>
+                         <a href="#thd">Skills</a>
+                    </li>
+                    <li>
+                         <a href="#CFV">Projects</a>
+                    </li>
+                    <li>
+                         <a href="#cc">Contact</a>
+                    </li>
+               </ul>
+          </nav>
+     </div>
+     <div class="first">
+          <div class="name">
+               Hi. I'am Aryan Mishra
+          </div>
+          <div class="intro">
+               <span class="spn">
+
+               </span>
+          </div>
+          <div class="bg">
+
+          </div>
+          <!-- <img class="ima1" src="https://lh3.googleusercontent.com/YiHxHCxngm1kn_yoHW45Utlrgy86ijRJDdnKS2zRgURzi-YgVKOEtNf6AHMNnFGYrmxrmLVxIwdR-gkU4euzV7B3h4vL6V3rLR6e0Fj8uND_MLJes6oT-EzuG5qyVD855qELsnPdJ2Iq0SbA6A" alt=""> -->
+          
+     </div>
+     <div class="second" id="sec">
+          <h1 class="qwq">
+               About Me
+          </h1>
+          <div class="myself"> 
+               <!-- Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem porro, voluptate quod nostrum assumenda vero a illo nemo? Vero nisi quasi dicta adipisci culpa a similique cumque saepe, delectus doloremque rem cupiditate veniam praesentium eius nulla quaerat, iusto recusandae! Voluptatum officiis ex illo aliquam sunt! -->
+               Hi I'am Aryan Mishra currently in 2nd year B.Tech Computer Science and Engineering at Birla Institute and Technology (BIT) Mesra, Ranchi. My hobbies include competitive programming, frontend development, android development, playing sports like badminton and reading novels
+          </div>
+          <img  class="ima2" src="https://media-exp1.licdn.com/dms/image/C5603AQGXCVjPiQ24Kw/profile-displayphoto-shrink_400_400/0/1636544885840?e=1672272000&v=beta&t=AuiceyVJeMsBTePHtr_OOtUKuYMFvcrBUa9_ROzXfAQ" alt="logo">
+     </div>
+
+     <div class="third" id="thd">
+          <h1 class="thd-hd">
+               Skills
+          </h1>
+          <img src="https://ishanpandey703.netlify.app/static/media/cpp.ad112a7c43502452195e4aedb0c5197e.svg" alt="" class="cpp">
+          <img src="https://ishanpandey703.netlify.app/static/media/python.0bbb58972156e017fcbbc137b734bf31.svg" alt="" class="c">
+          <img src="https://ishanpandey703.netlify.app/static/media/bootstrap.e8cd3cce7d734aca4bcb76248792b912.svg" alt="" class="java">
+          <img src="https://ishanpandey703.netlify.app/static/media/js.4fd6a06b84315ddf8bf0f6eb8f7edbfb.svg" alt="" class="js">
+          <img src="https://ishanpandey703.netlify.app/static/media/html.2458958dee0c5f5694ffd1b8f7a09e50.svg" alt="" class="hht">
+          <img src="https://ishanpandey703.netlify.app/static/media/css.fe3ff32055e1e67cb686e64e3a96bdb9.svg" alt="" class="css">
+          <img src="https://ishanpandey703.netlify.app/static/media/nodejs.ee22666d6cc1e1e499fb96578d400da4.svg" alt="" class="cmm">
+     </div>
+
+     <div class="cfv" id="CFV">
+          <div class="HD">
+               My Projects
+          </div>
+          <div class="allabt">
+               This is my first project in Web Dev <br><br>
+               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6sf2mhrbC7rg3GKqlUTlkoPBsWi82JPyu6Q&usqp=CAU" alt=""> <br>
+               <a target="_blank" href="#">Here is the Source Code</a> <br><br>
+               And here is a very basic Android Project <br><br>
+               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlOm9zAZjgYy-Fc1tIADo-6QTm4f4Jz48zBQ&usqp=CAU" alt="">
+               <br>
+               <a target="_blank" href="https://github.com/TecvV/BMICalculator">Here is the Source Code</a>
+          </div>
+     </div>
+     <div class="contact" id="cc">
+          <h1 class="cnt">
+               Contact Me
+          </h1>
+          <a target="_blank" href="https://www.facebook.com/profile.php?id=100004101140149">
+               <img class="fb" src="https://ishanpandey703.github.io/Portfolio/photos/Facebook.png" alt="">
+
+          </a>
+          <a target="_blank" href="https://www.instagram.com/tecvaryan/">
+               <img src="https://ishanpandey703.github.io/Portfolio/photos/instagram.png" alt="" class="insta">
+
+          </a>
+          <a target="_blank" href="https://www.linkedin.com/in/aryan-mishra-52ba21205/">
+               <img src="https://ishanpandey703.github.io/Portfolio/photos/linked_in.png" alt="" class="ld">
+
+          </a>
+          <a target="_blank" href="https://github.com/TecvV">
+               <img src="https://ishanpandey703.github.io/Portfolio/photos/github_git.png" alt="" class="githb">
+          </a>
+          
+     </div>
+</body>
+</html>
+
+
+
+<!-- margin-top: 29px;
+height: 594px; -->
