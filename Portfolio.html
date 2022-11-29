@@ -51,9 +51,11 @@
           /* background-color: green; */
           text-align: center;
           color: beige;
-          background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGgi4d-ki5iMB2c9PI-BIjZ3MozVfLRWeYNg&usqp=CAU');
+          background-image: url('https://wallpapers.com/images/file/3d-black-windows-laptop-01zaolp9si4rus6t.jpg');
+          /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGgi4d-ki5iMB2c9PI-BIjZ3MozVfLRWeYNg&usqp=CAU'); */
           background-repeat: no-repeat;
-          background-size: cover;
+          background-position: center;
+          background-size:cover;
           /* background-image: url('https://lh3.googleusercontent.com/YiHxHCxngm1kn_yoHW45Utlrgy86ijRJDdnKS2zRgURzi-YgVKOEtNf6AHMNnFGYrmxrmLVxIwdR-gkU4euzV7B3h4vL6V3rLR6e0Fj8uND_MLJes6oT-EzuG5qyVD855qELsnPdJ2Iq0SbA6A'); */
           /* background-image: url('https://lh3.googleusercontent.com/YiHxHCxngm1kn_yoHW45Utlrgy86ijRJDdnKS2zRgURzi-YgVKOEtNf6AHMNnFGYrmxrmLVxIwdR-gkU4euzV7B3h4vL6V3rLR6e0Fj8uND_MLJes6oT-EzuG5qyVD855qELsnPdJ2Iq0SbA6A'); */
      }
@@ -70,7 +72,7 @@
               margin-left: 235px;
      }
      .name:hover{
-          color: rgb(9, 2, 105);
+          color: rgb(185, 6, 6);
      }
      .intro{
           /* border: solid blueviolet; */
@@ -373,6 +375,11 @@
      width: 76px;
     margin-left: 247px;
 }
+#bttn{
+     /* background-color: red; */
+     background-color: #cf2d7a;
+     border-radius: 55px;
+}
 /* .pic{
      float: right;
      border-right-width: 0px;
@@ -483,8 +490,17 @@
           <a target="_blank" href="https://github.com/TecvV">
                <img src="https://ishanpandey703.github.io/Portfolio/photos/github_git.png" alt="" class="githb">
           </a>
+          <button id="bttn" onclick="topf()">
+               Go to Top
+          </button>
           
      </div>
+     <script>
+          function topf(){
+               let bttn = document.getElementById('bttn');
+               document.documentElement.scrollTop = 0;
+          }
+     </script>
 </body>
 </html>
 
